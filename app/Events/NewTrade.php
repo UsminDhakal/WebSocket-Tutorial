@@ -15,13 +15,15 @@ class NewTrade implements ShouldBroadcast
     use Dispatchable, InteractsWithSockets, SerializesModels;
 
     public $trade;
+    public $id;
 
     /**
      * Create a new event instance.
      */
-    public function __construct($trade)
+    public function __construct($trade, $id)
     {
         $this->trade = $trade;
+        $this->id = $id;
     }
 
     /**
@@ -31,7 +33,7 @@ class NewTrade implements ShouldBroadcast
      */
     public function broadcastOn(): array
     {
-        return [new Channel('trades')];
+        return [new Channel('trades_'.$this->id)];
 
     }
 }

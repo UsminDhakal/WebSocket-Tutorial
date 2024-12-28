@@ -15,17 +15,16 @@ class Subscribed extends Controller
     {
         // Event::dispatch(new SendMail(1));
         // dd(request("message"));
-        Event::dispatch(new NewTrade(request("message")));
+        Event::dispatch(new NewTrade(request("message"), 1));
         return response()->json("Fired");
     }
 
     public function fire()
     {
-        Event::dispatch(new NewTrade(1));
+        // Event::dispatch(new NewTrade(1));
         return response()->json("Fired");
     }
-
-
+    
     public function app(){
         return view("app");
     }

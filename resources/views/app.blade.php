@@ -11,7 +11,7 @@
     <script>
         $(document).ready(function () {
 
-            window.Echo.channel("trades").listen("NewTrade", (e)=>{
+            window.Echo.channel("trades_1").listen("NewTrade", (e)=>{
                 $(".h1").append(e.trade);
                 console.log(e);
             })
